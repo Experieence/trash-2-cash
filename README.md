@@ -4,10 +4,10 @@ A full-stack web application designed to encourage recycling through an incentiv
 
 ## Screenshots
 <!-- Add screenshots here -->
-![Login Page](screenshots/login.png)
+![Login Page](screenshots/Login.png)
 ![User Dashboard](screenshots/dashboard.png)
 ![Log Waste](screenshots/log-waste.png)
-![Rewards Page](screenshots/rewards.png)
+![Rewards Page](screenshots/Rewards.png)
 ![Admin Dashboard](screenshots/admin-dashboard.png)
 
 ## What This Project Is
