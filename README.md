@@ -6,6 +6,10 @@ A full-stack web application designed to encourage recycling through an incentiv
 <p float="left">
   <img src="screenshots/Login.png" width="45%" />
   <img src="screenshots/dashboard.png" width="45%" />
+  <img src="screenshots/Logotorecycle.png" width="45%" />
+  <img src="screenshots/Rewards.png" width="45%" />
+  <img src="screenshots/Signup.png" width="45%" />
+  <img src="screenshots/home.png" width="45%" />
 </p>
 ![Log Waste](screenshots/log-waste.png)
 ![Rewards Page](screenshots/Rewards.png)
@@ -23,14 +27,14 @@ The application allows users to log recyclable waste, earn points, and redeem re
 - Server-side rendered UI using EJS
 - MVC-based backend architecture
 
-## 🛠️ Tech Stack
+## Tech Stack
 - **Node.js** & **Express.js** – backend logic and routing
 - **MongoDB** & **Mongoose** – database and data models
 - **EJS** – server-side rendering
 - **HTML / CSS** – frontend structure and styling
 - **Git & GitHub** – version control
 
-## ▶️ Run Locally
+## Run Locally
 ```bash
 git clone https://github.com/your-username/your-repo-name.git
 cd your-repo-name
