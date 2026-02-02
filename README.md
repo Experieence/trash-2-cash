@@ -3,7 +3,6 @@
 A full-stack web application designed to encourage recycling through an incentive-based rewards system, supporting waste management initiatives in Johannesburg.
 
 ## Screenshots
-<!-- Add screenshots here -->
 ![Login Page](screenshots/Login.png)
 ![User Dashboard](screenshots/dashboard.png)
 ![Log Waste](screenshots/log-waste.png)
