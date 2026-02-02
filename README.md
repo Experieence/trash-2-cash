@@ -11,6 +11,7 @@ A full-stack web application designed to encourage recycling through an incentiv
   <img src="screenshots/Signup.png" width="45%" />
   <img src="screenshots/home.png" width="45%" />
 </p>
+
 ## What This Project Is
 This project was developed as part of a synoptic assessment to address real-world challenges around illegal dumping and low recycling engagement.
 The application allows users to log recyclable waste, earn points, and redeem rewards, while administrators can manage users, rewards, and recycing data.
