@@ -6,7 +6,7 @@ A full-stack web application designed to encourage recycling through an incentiv
 <p float="left">
   <img src="screenshots/Login.png" width="45%" />
   <img src="screenshots/dashboard.png" width="45%" />
-  <img src="screenshots/Signup" width="45%" />
+  <img src="screenshots/Signup.png" width="45%" />
   <img src="screenshots/home.png" width="45%" />
 </p>
 
