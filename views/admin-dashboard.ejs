@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Admin Dashboard</title>
+  <link rel="stylesheet" href="/style.css">
+  <style>
+    .admin-section {
+      max-width: 900px;
+      margin: 40px auto;
+      background: white;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    h2 {
+      text-align: center;
+    }
+
+    .upload-item {
+      border-bottom: 1px solid #ccc;
+      padding: 15px 0;
+    }
+
+    .upload-item img {
+      max-width: 150px;
+      height: auto;
+      margin-top: 10px;
+    }
+
+    .actions button {
+      margin-right: 10px;
+      padding: 5px 10px;
+      cursor: pointer;
+    }
+
+    .user-list {
+      margin-top: 40px;
+    }
+
+    .user-list table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    .user-list th, .user-list td {
+      padding: 10px;
+      border: 1px solid #ccc;
+      text-align: left;
+    }
+
+    .user-list th {
+      background-color: #f4f4f4;
+    }
+  </style>
+</head>
+<body>
+
+<nav class="navbar">
+  <div class="nav-left">
+    <div class="logo">Trash2Cash Admin</div>
+
+    <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+
+    <div class="nav-links" id="navMenu">
+      <a href="/admin-dashboard">Dashboard</a>
+      <a href="/admin-users">Manage Users</a>
+      <a href="/admin-rewards">Approve Rewards</a>
+    </div>
+  </div>
+
+  <div class="nav-right">
+    <div class="dropdown">
+      <span class="dropbtn">Hello, admin ⌄</span>
+      <div class="dropdown-content">
+        <a href="/admin-dashboard">Dashboard</a>
+        <a href="/admin-users">Manage Users</a>
+        <a href="/admin-rewards">Approve Rewards</a>
+        <a href="/logout">Logout</a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<script>
+  function toggleMenu() {
+    const nav = document.getElementById('navMenu');
+    nav.classList.toggle('show');
+  }
+</script>
+
+
+
+  <div class="admin-section">
+    <h2>Pending Uploads</h2>
+
+    <% if (uploads.length === 0) { %>
+      <p>No uploads to review.</p>
+    <% } else { %>
+      <% uploads.forEach(upload => { %>
+        <div class="upload-item">
+          <p><strong>User:</strong> <%= upload.username %></p>
+          <p><strong>Item:</strong> <%= upload.itemType %></p>
+          <p><strong>Quantity:</strong> <%= upload.quantity %></p>
+          <p><strong>Date:</strong> <%= upload.date.toDateString() %></p>
+          <% if (upload.photoUrl) { %>
+            <img src="<%= upload.photoUrl %>" alt="Uploaded Image" />
+          <% } %>
+          <div class="actions">
+         <form action="/admin/approve/<%= upload._id %>" method="POST" style="display:inline;">
+         <button type="submit">Approve</button>
+        </form>
+         <form action="/admin/reject/<%= upload._id %>" method="POST" style="display:inline;">
+         <button type="submit">Reject</button>
+        </form>
+</div>
+
+        </div>
+      <% }) %>
+    <% } %>
+  </div>
+
+  <div class="admin-section user-list">
+    <h2>Users Overview</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Username</th>
+          <th>Total Points</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% users.forEach(user => { %>
+          <tr>
+            <td><%= user.username %></td>
+            <td><%= user.points || 0 %></td>
+          </tr>
+        <% }) %>
+      </tbody>
+    </table>
+  </div>
+
+<script>
+  function toggleMenu() {
+    const nav = document.getElementById('navMenu');
+    nav.classList.toggle('show');
+  }
+</script>
+
+
+</body>
+</html>

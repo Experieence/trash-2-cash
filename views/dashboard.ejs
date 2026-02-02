@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Dashboard - Trash2Cash</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+
+  <nav class="navbar">
+  <div class="nav-left">
+    <div class="logo">Trash2Cash</div>
+    <div class="nav-links" id="navMenu">
+      <a href="/">Home</a>
+      <% if (username) { %>
+        <a href="/dashboard">Dashboard</a>
+        <a href="/log-waste">Log Recycle Items</a>
+        <a href="/rewards">View Rewards</a>
+      <% } else { %>
+        <a href="/login">Log Recycle Items</a>
+        <a href="/login">Upload Photo</a>
+        <a href="/login">View Rewards</a>
+      <% } %>
+    </div>
+  </div>
+
+
+
+  <div class="nav-right">
+    <% if (username) { %>
+      <div class="dropdown">
+        <span class="dropbtn">Welcome, <%= username %> ⌄</span>
+        <div class="dropdown-content">
+          <a href="/dashboard">Dashboard</a>
+          <a href="/logout">Logout</a>
+        </div>
+      </div>
+    <% } else { %>
+      <a href="/login">Login</a>
+      <a href="/register">Register</a>
+    <% } %>
+  </div>
+</nav>
+
+
+
+  <div class="container">
+    <h2>Welcome, <%= username %>!</h2>
+    <p>Select an action:</p>
+    
+    <ul style="list-style: none; padding: 0;">
+      <li><button onclick="location.href='/log-waste'">Log Recyclable Items</button></li>
+      <li><button onclick="location.href='/rewards'">View Rewards</button></li>
+    </ul>
+  </div>
+
+<script>
+  function toggleMenu() {
+    const nav = document.getElementById('navMenu');
+    nav.classList.toggle('show');
+  }
+</script>
+
+</body>
+</html>

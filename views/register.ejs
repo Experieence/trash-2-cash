@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Register</title>
+  <link rel="stylesheet" href="/style.css">
+  <script>
+    function validateForm() {
+      const password = document.getElementById('password').value;
+      const confirm = document.getElementById('confirm').value;
+      if (password !== confirm) {
+        alert('Passwords do not match.');
+        return false;
+      }
+      return true;
+    }
+  </script>
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar">
+  <div class="nav-left">
+    <div class="logo">Trash2Cash</div>
+    <div class="nav-links" id="navMenu">
+      <a href="/">Home</a>
+      <% if (username) { %>
+        <a href="/dashboard">Dashboard</a>
+        <a href="/log-waste">Log Recycle Items</a>
+        <a href="/rewards">View Rewards</a>
+      <% } else { %>
+        <a href="/login">Log Recycle Items</a>
+        <a href="/login">Upload Photo</a>
+        <a href="/login">View Rewards</a>
+      <% } %>
+    </div>
+  </div>
+
+<div class="nav-right">
+  <% if (username) { %>
+    <div class="dropdown">
+      <span class="dropbtn">Welcome, <%= username %> ⌄</span>
+      <div class="dropdown-content">
+        <a href="/dashboard">Dashboard</a>
+        <a href="/logout">Logout</a>
+      </div>
+    </div>
+  <% } else { %>
+    <div class="dropdown">
+      <span class="dropbtn">Login ⌄</span>
+      <div class="dropdown-content">
+        <a href="/login">User Login</a>
+        <a href="/admin-login">Admin Login</a>
+      </div>
+    </div>
+    <a href="/register">Register</a>
+  <% } %>
+</div>
+</nav>
+
+  <!-- Registration Form -->
+  <div class="container">
+    <h2>Create an Account</h2>
+
+    <% if (error) { %>
+      <p style="color: red;"><%= error %></p>
+    <% } %>
+    <% if (success) { %>
+      <p style="color: green;"><%= success %></p>
+    <% } %>
+
+    <form method="POST" action="/register" onsubmit="return validateForm();">
+      <input type="text" name="username" placeholder="Username" required>
+      <input type="password" id="password" name="password" placeholder="Password" required>
+      <input type="password" id="confirm" name="confirmPassword" placeholder="Confirm Password" required>
+      <button type="submit">Register</button>
+    </form>
+
+    <h3>Already have an account? <a href="/login">Sign in!</a><h3>
+
+  </div>
+</body>
+</html>

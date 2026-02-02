@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Approve Rewards</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+ <nav class="navbar">
+  <div class="nav-left">
+    <div class="logo">Trash2Cash Admin</div>
+
+    <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+
+    <div class="nav-links" id="navMenu">
+      <a href="/admin-dashboard">Dashboard</a>
+      <a href="/admin-users">Manage Users</a>
+      <a href="/admin-rewards">Approve Rewards</a>
+    </div>
+  </div>
+
+  <div class="nav-right">
+    <div class="dropdown">
+      <span class="dropbtn">Hello, admin ⌄</span>
+      <div class="dropdown-content">
+        <a href="/admin-dashboard">Dashboard</a>
+        <a href="/admin-users">Manage Users</a>
+        <a href="/admin-rewards">Approve Rewards</a>
+        <a href="/logout">Logout</a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<script>
+  function toggleMenu() {
+    const nav = document.getElementById('navMenu');
+    nav.classList.toggle('show');
+  }
+</script>
+
+  <div class="container">
+    <h2>Approve Recycle Rewards</h2>
+    <% if (uploads.length === 0) { %>
+      <p>No pending rewards.</p>
+    <% } else { %>
+      <% uploads.forEach(upload => { %>
+        <div class="upload-item">
+          <p><strong>User:</strong> <%= upload.username %></p>
+          <p><strong>Item:</strong> <%= upload.itemType %></p>
+          <p><strong>Quantity:</strong> <%= upload.quantity %></p>
+          <% if (upload.photoUrl) { %>
+            <img src="<%= upload.photoUrl %>" alt="Uploaded Image" />
+          <% } %>
+          <form action="/admin/approve/<%= upload._id %>" method="POST">
+            <button type="submit">Approve</button>
+          </form>
+          <form action="/admin/reject/<%= upload._id %>" method="POST">
+            <button type="submit">Reject</button>
+          </form>
+        </div>
+      <% }) %>
+    <% } %>
+  </div>
+</body>
+</html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Trash2Cash - Rewards</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+
+  <nav class="navbar">
+  <div class="nav-left">
+    <div class="logo">Trash2Cash</div>
+    <div class="nav-links" id="navMenu">
+      <a href="/">Home</a>
+      <% if (username) { %>
+        <a href="/dashboard">Dashboard</a>
+        <a href="/log-waste">Log Recycle Items</a>
+        <a href="/rewards">View Rewards</a>
+      <% } else { %>
+        <a href="/login">Log Recycle Items</a>
+        <a href="/login">Upload Photo</a>
+        <a href="/login">View Rewards</a>
+      <% } %>
+    </div>
+  </div>
+
+
+
+  <div class="nav-right">
+    <% if (username) { %>
+      <div class="dropdown">
+        <span class="dropbtn">Welcome, <%= username %> ⌄</span>
+        <div class="dropdown-content">
+          <a href="/dashboard">Dashboard</a>
+          <a href="/logout">Logout</a>
+        </div>
+      </div>
+    <% } else { %>
+      <a href="/login">Login</a>
+      <a href="/register">Register</a>
+    <% } %>
+  </div>
+</nav>
+
+
+
+
+  <div class="container">
+    <h2><%= username %>'s Rewards</h2>
+    <h3>You have <%= points %> points!</h3>
+
+    <ul style="list-style: none; padding: 0;">
+      <li>
+        <form method="POST" action="/rewards/redeem">
+          <input type="hidden" name="cost" value="20" />
+          <button type="submit">Item 1 - 20 Points</button>
+        </form>
+      </li>
+      <li>
+        <form method="POST" action="/rewards/redeem">
+          <input type="hidden" name="cost" value="10" />
+          <button type="submit">Item 2 - 10 Points</button>
+        </form>
+      </li>
+    </ul>
+
+    <% if (typeof success !== 'undefined') { %>
+      <p><%= success %></p>
+    <% } %>
+    <% if (typeof error !== 'undefined') { %>
+      <p><%= error %></p>
+    <% } %>
+  </div>
+
+  <script>
+  function toggleMenu() {
+    const nav = document.getElementById('navMenu');
+    nav.classList.toggle('show');
+  }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Trash2Cash - Home</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+
+  <nav class="navbar">
+  <div class="nav-left">
+    <div class="logo">Trash2Cash</div>
+    <div class="nav-links" id="navMenu">
+      <a href="/">Home</a>
+      <% if (username) { %>
+        <a href="/dashboard">Dashboard</a>
+        <a href="/log-waste">Log Recycle Items</a>
+        <a href="/rewards">View Rewards</a>
+      <% } else { %>
+        <a href="/login">Log Recycle Items</a>
+        <a href="/login">Upload Photo</a>
+        <a href="/login">View Rewards</a>
+      <% } %>
+    </div>
+  </div>
+
+<div class="nav-right">
+  <% if (username) { %>
+    <div class="dropdown">
+      <span class="dropbtn">Welcome, <%= username %> ⌄</span>
+      <div class="dropdown-content">
+        <a href="/dashboard">Dashboard</a>
+        <a href="/logout">Logout</a>
+      </div>
+    </div>
+  <% } else { %>
+    <div class="dropdown">
+      <span class="dropbtn">Login ⌄</span>
+      <div class="dropdown-content">
+        <a href="/login">User Login</a>
+        <a href="/admin-login">Admin Login</a>
+      </div>
+    </div>
+    <a href="/register">Register</a>
+  <% } %>
+</div>
+
+</nav>
+
+
+
+
+
+  <div class="container">
+    <h1>Welcome to Trash2Cash</h1>
+    <p>
+      Recycle items. Earn points. Redeem rewards.
+    </p>
+
+    <% if (username) { %>
+      <p>You are logged in as <strong><%= username %></strong>.</p>
+    <% } else { %>
+      <p><a href="/login">Log in</a> to start tracking your recycling!</p>
+    <% } %>
+  </div>
+
+  <script>
+  function toggleMenu() {
+    const nav = document.getElementById('navMenu');
+    nav.classList.toggle('show');
+  }
+</script>
+
+</body>
+</html>
