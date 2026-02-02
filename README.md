@@ -6,8 +6,8 @@ A full-stack web application designed to encourage recycling through an incentiv
 <p float="left">
   <img src="screenshots/Login.png" width="45%" />
   <img src="screenshots/dashboard.png" width="45%" />
-  <img src="screenshots/Logotorecycle.png" width="45%" />
-  <img src="screenshots/Rewards.png" width="45%" />
+  <img src="screenshots/Signup" width="45%" />
+  <img src="screenshots/Logtorecycle.png" width="45%" />
 </p>
 
 ## What This Project Is
